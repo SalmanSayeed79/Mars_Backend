@@ -3,7 +3,7 @@ package com.mars.mars_backend.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="site_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -11,18 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User,Long> {
-    @Query(value = "SELECT * FROM  user",nativeQuery = true)
+    @Query(value = "SELECT * FROM  site_user",nativeQuery = true)
     List<User> getAllUsers();
 
-    @Query(value = "SELECT * FROM  user a  WHERE   a.user_id = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM  site_user a  WHERE   a.user_id = ?1",nativeQuery = true)
     User searchUserByID(Long id);
 
-    @Query(value = "SELECT * FROM  user a  WHERE   a.email = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM  site_user a  WHERE   a.email = ?1",nativeQuery = true)
     User searchUserByEmail(String email);
 
     @Transactional
     @Modifying
-    @Query(value="UPDATE user SET name = :name,email=:email,is_researcher=:isResearcher,user_type=:userType,institute=:institute,address=:address, image=:img  WHERE user_id= :id",nativeQuery = true)
+    @Query(value="UPDATE site_user SET name = :name,email=:email,is_researcher=:isResearcher,user_type=:userType,institute=:institute,address=:address, image=:img  WHERE user_id= :id",nativeQuery = true)
     int updateUser(Long id, String name, String email, Boolean isResearcher,String userType,String institute,String address ,String img);
 
 }

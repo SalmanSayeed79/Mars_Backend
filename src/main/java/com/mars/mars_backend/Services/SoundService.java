@@ -2,6 +2,7 @@ package com.mars.mars_backend.Services;
 
 import com.mars.mars_backend.Entity.Sound;
 import com.mars.mars_backend.Interface.SoundRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
 public class SoundService {
+    @Autowired
     SoundRepository soundRepo;
     @RequestMapping(value="/sounds",method = RequestMethod.GET)
     public List<Sound> getAllSounds(){return soundRepo.getAllSounds();}

@@ -3,10 +3,7 @@ package com.mars.mars_backend.Services;
 import com.mars.mars_backend.Entity.Sound;
 import com.mars.mars_backend.Interface.SoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class SoundService {
     public List<Sound> getAllSounds(){return soundRepo.getAllSounds();}
 
     @RequestMapping(value="/sound",method = RequestMethod.POST)
-    public Sound addSound(Sound sound){
+    public Sound addSound(@RequestBody Sound sound){
         soundRepo.saveAndFlush(sound);
         return sound;
     }

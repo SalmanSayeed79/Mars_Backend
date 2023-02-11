@@ -3,10 +3,7 @@ package com.mars.mars_backend.Services;
 import com.mars.mars_backend.Entity.Flame;
 import com.mars.mars_backend.Interface.FlameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class FlameService {
     @RequestMapping(value="/flames",method = RequestMethod.GET)
     public List<Flame> getAllFlames(){return flameRepo.getAllFlames();}
     @RequestMapping(value="/flame",method = RequestMethod.POST)
-    public Flame addFlame(Flame flame){
+    public Flame addFlame(@RequestBody Flame flame){
         flameRepo.saveAndFlush(flame);
         return flame;
     }
